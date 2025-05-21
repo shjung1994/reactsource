@@ -1,0 +1,119 @@
+자바스크립트로 웹개발만 하지 않고 프로그램(vscode, atom, slack 개발)도 만듦
+
+자바스크립트 런타임: 자바스크립트가 실행될 수 있는 환경
+- 웹브라우저, node.js
+
+- node.js(2009년 개발): 구글의 자바스크립트 엔진을 이용해 서버 측에서 실행이 가능하도록 만든 것
+  == spring boot
+  npm: package를 실행하는 명령어 (= maven)
+  yarn: npm 보다 향상
+
+자바스크립트 기반의 프론트엔드 기술
+- Svelte, Vue, React, Angular
+
+REACT: 자바스크립트 기반의 라이브러리 
+
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+react 개발환경
+1. node.js 설치(패키지 관리도구 npm이 같이 설치 됨)
+   - 패키지 설치: npm i 패키지명
+2. yarn 설치(선택 사항) - 패키지 관리도구 / npm보다 효율적이고 빠름
+npm i --global yarn
+yarn --version
+
+yarn add 패키지명
+( yarn add tailwindcss @tailwindcss/vite )
+
+스프링부트 생성
+- maven
+- gradle(maven 보다 진화된 버전)
+
+3. vscode extension
+ESLint
+reactjs code snippets
+Tailwind CSS IntelliSense
+edge(react development tools)
+
+4. react 프로그램 생성(cra방식)
+   npx create-react-app 앱이름(전통적인 방법)
+
+   vite 환경에서 react 프로그램 생성
+ 
+   yarn create vite (선택하면서 설치)
+  cd 앱이름
+  yarn
+  yarn dev
+o 페이지
+q 종료
+
+ yarn create vite 앱이름 --template react
+
+5. 프로젝트 구조
+package.json: Node 기반 프로젝트는 가지고 있음 == pom.xml과 같은 개념
+eslint.config.js: 자바스크립트 문법 검사하는 것(eslint)의 환경설정 파일
+vite.config.js: vite의 환경설정 파일
+
+명령어
+yarn dev: 작성하는 코드 실시간 반영확인하며 페이지 개발
+
+  Shortcuts
+  press h + enter to show help
+  press r + enter to restart the server
+  press u + enter to show server url   
+  press o + enter to open in browser   
+  press c + enter to clear console     
+  press q + enter to quit
+
+yarn build: 개발된 코드들을 하나로 합쳐서 서비스 할 수 있는 상태로 만들어 줌
+dist 폴더 생성됨
+src 폴더 안의 jsx 파일들을 번들러(묶어주는 개념)를 이용해 최적화 작업을 하게 됨
+
+yarn preview: 미리보기(서버에 배포된 후 실행결과 보기)
+
+리액트는 복잡한 화면을 component로 구현 => 재사용성 증가
+예전엔 클래스로 컴포넌트작성
+요즘엔 함수로 작성
+
+컴포넌트: jsx파일
+
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+jsx 문법
+- 자바스크립트 확장 문법
+- 브라우저에서 실행되기 전에 코드가 번들링 되는 과정에서 바벨을 사용하여 일반 자바스크립트 코드로 변환됨
+
+웹핵: 번들링 시켜주는 도구
+바벨: 자바스크립트 문법으로 변환시켜주는 도구
+
+컴포넌트는 대문자로 생성
+rsc + 엔터 (html의 ! + 엔터)
+
+- {}를 사용: 하나의 태그로 만들어서 보낸다
+- if문 대신에 조건부 연산자: ?:
+- &&를 사용한 조건부 렌더링(참인 경우에만 동작)
+- ?? or ||: null or undefined가 들어오는 경우 뒤에 오는 값 반환
+    단 ??: 비어있는 문자열일때 동작안함
+       ||: 비어있는 문자열도 동작
+
+객체는 바로 접근 불가
+
+- style
+1) ~~.css: import 사용
+2) jsx안에서 스타일 선언
+3) inline 방식: <div style={{color:"red", fontSize:"25px"}}>홍길동</div>
+4) CSS Module: 컴포넌트마다 스타일 클래스명이 중첩되는 것을 방지
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+props: properties 줄임말
+       부모 컴퍼넌트가 자식 컴퍼넌트한테 어떤것을 넘겨줄때 사용하는 것(컴포넌트들 사이에서 데이터를 전달 시 사용, 부모 -> 자식)
+
+       ex) MyComponent.jsx -> App.jsx
+
+    <App name="홍길동"/>
+    <App name="홍길동">내용</App>
+
+    name은 key
+    내용은 children
+
+children: 컴포넌트 태그 사이의 내용 보여주기
+    외부에 레이아웃 컴포넌트를 구성한 뒤 내용을 자유롭게 채울 때 사용
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+state
