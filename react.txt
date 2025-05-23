@@ -23,6 +23,8 @@ yarn --version
 
 yarn add 패키지명
 ( yarn add tailwindcss @tailwindcss/vite )
+( yarn add react-icons )
+( yarn add axios )
 
 스프링부트 생성
 - maven
