@@ -104,6 +104,7 @@ rsc + 엔터 (html의 ! + 엔터)
 2) jsx안에서 스타일 선언
 3) inline 방식: <div style={{color:"red", fontSize:"25px"}}>홍길동</div>
 4) CSS Module: 컴포넌트마다 스타일 클래스명이 중첩되는 것을 방지
+5) 디자인 라이브러리 사용(react-bootstrap, tailwindcss)
 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 props: properties 줄임말
        부모 컴퍼넌트가 자식 컴퍼넌트한테 어떤것을 넘겨줄때 사용하는 것(컴포넌트들 사이에서 데이터를 전달 시 사용, 부모 -> 자식)
