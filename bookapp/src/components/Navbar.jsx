@@ -13,7 +13,7 @@ const Navbar = () => {
         </li>
         <li>
           <Link to={"/add"} className="hover:underline underline-offset-1">
-            Add A Book
+            Add a Book
           </Link>
         </li>
       </ul>

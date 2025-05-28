@@ -4,7 +4,7 @@ import BookForm from "../components/BookForm";
 const AddBook = () => {
   return (
     <div>
-      <h1 className="text-[32px]">Add A New Book</h1>
+      <h1 className="text-[32px]">Add a New Book</h1>
       <BookForm />
     </div>
   );
