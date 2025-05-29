@@ -1,18 +1,10 @@
 export const renderStars = (rating) => {
-  console.log('rating', rating);
-  return '★'.repeat(rating) + '☆'.repeat(5 - rating);
+  console.log("rating", rating);
+  return "★".repeat(rating) + "☆".repeat(5 - rating);
 };
 
 export const getBookEmoji = (index) => {
-  return ['📕', '📗', '📘', '📙', '📓'][Number(index) % 5];
+  return ["📕", "📗", "📘", "📙", "📓"][Number(index) % 5];
 };
 
-export const genres = [
-  'Fiction',
-  'Non-fiction',
-  'Fantasy',
-  'Dystopian',
-  'Philosophy',
-  'Romance',
-  'Programming',
-];
+export const genres = ["Fiction", "Non-fiction", "Fantasy", "Dystopian", "Romance", "Programming", "Philosophy"];

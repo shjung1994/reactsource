@@ -7,7 +7,7 @@ import { getBookEmoji, renderStars } from "../util";
 import useCustomMove from "../../hooks/useCustomMove";
 
 const BookList = () => {
-  const { data, loading, error } = useFetch();
+  const { data, loading, error, toggleAvailable } = useFetch();
   const { moveToDetail } = useCustomMove();
 
   if (loading) return <Loading />;
@@ -30,6 +30,7 @@ const BookList = () => {
           </div>
           <div className="flex flex-col text-[0.9em]">
             <button
+              onClick={() => toggleAvailable(book.id, book.available)}
               className={
                 `w-[100px] m-1 py-2.5 bg-sky-500 text-white rounded-[3px] text-center hover:bg-sky-700 ` +
                 (book.available ? "" : `opacity-33`)

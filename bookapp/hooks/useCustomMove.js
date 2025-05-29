@@ -16,7 +16,24 @@ const useCustomMove = () => {
 
   const queryDefault = createSearchParams({ page, size, genre, keyword }).toString();
 
-  const moveToList = () => {};
+  // ?page=10&size=10&genre=&keyword
+  // moveToList({page:1, size:20, genre:1, keyword:'자바'})
+
+  const moveToList = (pageParam) => {
+    let queryStr: "";
+
+    if (pageParam) {
+      const page = pageParam.get("page", 1);
+      const size = pageParam.get("size", 10);
+      const genre = pageParam.get("genre", 0);
+      const keyword = pageParam.get("keyword", "");
+
+      queryStr = createSearchParams({ page, size, genre, keyword }).toString();
+    } else {
+      queryStr = queryDefault;
+    }
+  };
+
   const moveToDetail = (id) => {
     navigate({
       pathname: `/books/${id}`,
