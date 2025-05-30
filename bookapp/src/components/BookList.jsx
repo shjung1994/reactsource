@@ -5,15 +5,18 @@ import Loading from "./Loading";
 import Error from "./Error";
 import { getBookEmoji, renderStars } from "../util";
 import useCustomMove from "../../hooks/useCustomMove";
+import PageComponent from "./PageComponent";
 
-const BookList = () => {
-  const { data, loading, error, toggleAvailable } = useFetch();
-  const { moveToDetail } = useCustomMove();
+const BookList = ({moveState}) => {
+  const { moveToDetail, moveToList } = moveState;
+
+  const { data, loading, error, toggleAvailable } = useFetch(moveState);
 
   if (loading) return <Loading />;
   if (error) return <Error />;
 
   return (
+    <>
     <section className="p-0">
       {data.dtoList.map((book) => (
         <article
@@ -49,6 +52,8 @@ const BookList = () => {
         </article>
       ))}
     </section>
+    <PageComponent data={data} movePage={moveToList} />
+    </>
   );
 };
 
